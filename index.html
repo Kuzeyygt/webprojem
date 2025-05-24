@@ -1,106 +1,43 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ben Kimim? | [Kuzey Yiğit]</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <title>Giriş Yap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    function validateForm() {
+      const email = document.forms["loginForm"]["email"].value.trim();
+      const password = document.forms["loginForm"]["password"].value.trim();
+      const emailPattern = /^[a-z0-9]+@sakarya\.edu\.tr$/;
 
+      if (!email || !password) {
+        alert("Lütfen tüm alanları doldurun.");
+        return false;
+      }
+
+      if (!emailPattern.test(email)) {
+        alert("Geçerli bir Sakarya Üniversitesi e-posta adresi girin (örn: b2412100001@sakarya.edu.tr)");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
 </head>
 <body>
-
-  <header>
-    <div class="container">
-      <img src="img/profil.jpg" alt="Profil Fotoğrafı" class="profile-pic" />
-      <h1>Merhaba, ben [Kuzey Yiğit]</h1>
-      <p class="lead">Bilgisayar Mühendisliği öğrencisi </p>
-    </div>
-  </header>
-
-
-<!-- NAVIGATION MENU -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand " href="index.html">Anasayfa</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-      </li class="nav-item">
-          <a class="nav-link" href="cv.html">CV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sehir.html">Şehrim</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="miras.html">Mirasımız</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="iletisim.html">İletişim</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">Giriş</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-  <main class="container my-5">
-
-    <!-- Hakkımda -->
-    <section class="mb-5">
-      <h2 class="mb-3">Kendim Hakkında</h2>
-      <p>Merhaba! Ben Kuzey Yiğit. Sakarya Üniversitesi Bilgisayar Mühendisliği 1. sınıf öğrencisiyim. Ankara’da büyüdüm, köklerim ise Kastamonu’ya uzanıyor. Bilgisayar mühendisliği her ne kadar hayalimdeki meslek olmasa da, mevcut koşullar içinde en iyi seçeneğimdi. Şu an ailemden uzakta, kendi yolumu çizmeye çalışıyor, kişisel gelişimime odaklanıyorum. Kendimi genel olarak sosyal biri olarak tanımlasam da, dinlemeyi konuşmaktan daha çok severim. Bazen kendi başıma düşünüp sessizliğin içinde kaybolmak ayrı bir huzur veriyor. Kitap okuyup üzerine düşünmeyi, etkisinden çıkamadığım film ve dizileri keşfetmeyi, yeni yerler görerek ufkumu genişletmeyi ve yeni şeyler denemeyi çok seviyorum. Şu sıralar en büyük hedefim; kendimi her yönden daha iyi bir versiyonuma dönüştürmek. Sayfama hoş geldiniz!</p>
-    </section>
-
-    <section class="mb-5">
-
-    <!-- Gelecek Hedeflerim-->
-  <h2 class="mb-3">Gelecek Hedeflerim</h2>
-  <div class="row">
-    <div class="col-md-3"><span class="badge bg-primary fs-5">Hayat Duzenimi Arttırmak</span></div>
-    <div class="col-md-3"><span class="badge bg-success fs-5">Bir Spor Dalında Uzmanlasmak</span></div>
-    <div class="col-md-3"><span class="badge bg-warning text-dark fs-5">Yurt Dışında Okumak</span></div>
-    <div class="col-md-3"><span class="badge bg-danger fs-5">İyi Bir Takımda Çalışmak</span></div>
-  </div>
-</section>
-
-
-    <!-- Fotoğraflar -->
-    <section class="mb-5">
-      <h2 class="mb-3">Hayatımdan Kareler</h2>
-      <div class="row g-3">
-        <div class="col-md-3"><img src="img/1.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Foto 1"></div>
-        <div class="col-md-3"><img src="img/2.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Foto 2"></div>
-        <div class="col-md-3"><img src="img/3.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Foto 3"></div>
-        <div class="col-md-3"><img src="img/4.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Foto 4"></div>
+  <div class="container mt-5">
+    <h2 class="text-center">Giriş Yap</h2>
+    <form name="loginForm" action="login.php" method="POST" onsubmit="return validateForm()" class="mt-4 mx-auto" style="max-width: 400px;">
+      <div class="mb-3">
+        <label for="email" class="form-label">Kullanıcı Adı (Mail)</label>
+        <input type="text" name="email" id="email" class="form-control" placeholder="b2412100001@sakarya.edu.tr">
       </div>
-    </section>
-
-    <!-- Bağlantılar -->
-    <section>
-      <h2 class="mb-3">Bağlantılar</h2>
-      <a href="https://github.com/Kuzeyygt" target="_blank" class="btn btn-outline-dark btn-link-custom">🐱 GitHub</a>
-      <a href="https://www.instagram.com/kuzey.yiigiit" target="_blank" class="btn btn-outline-info btn-link-custom">📸 Instagram</a>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2025 [Kuzey Yiğit] | Tüm hakları saklıdır.</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="mb-3">
+        <label for="password" class="form-label">Şifre</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="b2412100001">
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Giriş</button>
+    </form>
+  </div>
 </body>
 </html>
-
